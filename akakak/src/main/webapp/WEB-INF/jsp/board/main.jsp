@@ -14,7 +14,7 @@
 
 <h1>게시판 리스트</h1>
 <hr>
-	<a href="/test.do?nowPage=1"><input type="button" value="게시판" class="btn btn-default" /></a>
+	<a href="/test.do?nowPage=1"><input type="button" value="게시판" class="btn btn-default"/></a>
 	<a href="/mapPage.do"><input type="button" value="지도" class="btn btn-default" /></a>
 
 </body>

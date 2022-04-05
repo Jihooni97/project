@@ -24,7 +24,7 @@ public interface BoardMapper {
 	public void insert(HashMap<String, Object> params);
 	
 	public void fileInsert(HashMap<String, Object> fileInfoInsert);
-	
+
 	public List<BoardVO> list();
 	
 	public int totalPage(HashMap<String, Object> param);

@@ -67,5 +67,4 @@ public class BoardServiceImpl implements BoardService{
 	public int totalPage(HashMap<String, Object> param) {
 		return testMapper.totalPage(param);
 	}
-	
 }

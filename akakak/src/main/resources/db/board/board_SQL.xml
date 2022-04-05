@@ -68,7 +68,7 @@
 			WHERE ${type} LIKE '%'||#{keyword}||'%'
 		</if>
 	</select>
-	
+
 <!-- 	<select id="searchList" resultType="int"> -->
 <!-- 		SELECT COUNT(*) FROM test -->
 <!-- 		<if test="keyword != null"> -->

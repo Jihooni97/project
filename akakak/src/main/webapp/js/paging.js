@@ -22,7 +22,7 @@ function boardList(page){
 	var data = {"nowPage" : page, "type" : $("[name=type]").val(), "keyword" : $("input[name=keyword]").val() };
 	
 	 $.ajax({
-		 url : "/test_select.do" ,
+		 url : "/test_select.do",
 		 type: "GET",
 		 data : data,
 		 dataType : "JSON",

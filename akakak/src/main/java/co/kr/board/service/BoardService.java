@@ -25,5 +25,4 @@ public interface BoardService {
 
 	public int totalPage(HashMap<String, Object> param);
 
-	
 }

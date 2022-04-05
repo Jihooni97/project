@@ -28,7 +28,7 @@
 		<option value="content">내용</option>
 		<option value="name">작성자</option>
 	</select>
-	<input name="keyword" type="text" value="${keyword}" >
+	<input name="keyword" type="text" value="${keyword}">
 	<button type="button" onclick="boardList(1)">검색</button>
 
 <table class="table">

@@ -49,7 +49,7 @@ public class BoardController {
 		
 		String type = (String) param.get("type");
 		String keyword = (String)param.get("keyword");
-//		HashMap<String, Object> param2 = new HashMap<String, Object>();
+//		HashMap<String, Object> param2 = new HashMap<String, Object>(); 
 //		param2.put("type", type);
 //		param2.put("keyword", keyword);
 		ModelAndView json = new ModelAndView("jsonView");
