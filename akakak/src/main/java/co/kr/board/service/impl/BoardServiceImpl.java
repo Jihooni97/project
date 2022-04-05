@@ -65,7 +65,6 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public int totalPage() {
-		// TODO Auto-generated method stub
 		return testMapper.totalPage();
 	}
 	

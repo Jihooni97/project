@@ -23,7 +23,6 @@
 </style>
 <body>
 <h2>게시판 리스트</h2>
-<form>
 	<select name="type">
 		<option value="title">제목</option>
 		<option value="content">내용</option>
@@ -31,7 +30,7 @@
 	</select>
 	<input name="keyword" type="text" value="${keyword}" >
 	<button type="button" onclick="boardList(1)">검색</button>
-</form>
+
 <table class="table">
 	<tr>
 		<th>번호</th>

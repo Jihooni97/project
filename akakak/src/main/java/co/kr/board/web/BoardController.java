@@ -32,12 +32,14 @@ public class BoardController {
 	
 	@RequestMapping(value="/main.do")
 	public String mainPage(){
+		
 		return "/board/main";
 	}
 	
 	//ajax 사용 
 	@RequestMapping(value="/test.do")
-	public String boardList(){
+	public String boardList(Model model){
+		
 		return "/board/select_test";
 	}
 	
