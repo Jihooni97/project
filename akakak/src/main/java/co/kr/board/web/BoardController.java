@@ -46,10 +46,14 @@ public class BoardController {
 	@RequestMapping(value = "/test_select.do")
 	public ModelAndView getList(@RequestParam HashMap<String, Object> param){
 		int nowPage = Integer.parseInt(param.get("nowPage").toString());
+		
 		String type = (String) param.get("type");
 		String keyword = (String)param.get("keyword");
+//		HashMap<String, Object> param2 = new HashMap<String, Object>();
+//		param2.put("type", type);
+//		param2.put("keyword", keyword);
 		ModelAndView json = new ModelAndView("jsonView");
-		int totalCount = testService.totalPage();
+		int totalCount = testService.totalPage(param);
 		int offset = (nowPage - 1) * 5;
 		int limit = 5;
 		List<HashMap<String, Object>> selectList = testService.select(limit, offset, type, keyword);

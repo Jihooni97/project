@@ -64,7 +64,7 @@
 
 	<select id="totalPage" resultType="int">
 		SELECT COUNT(*) FROM test
-		<if test="keyword != null">
+		<if test="keyword != null and keyword != ''">
 			WHERE ${type} LIKE '%'||#{keyword}||'%'
 		</if>
 	</select>

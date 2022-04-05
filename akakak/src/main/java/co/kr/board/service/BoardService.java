@@ -23,7 +23,7 @@ public interface BoardService {
 
 	public List<BoardVO> list();
 
-	public int totalPage();
+	public int totalPage(HashMap<String, Object> param);
 
 	
 }

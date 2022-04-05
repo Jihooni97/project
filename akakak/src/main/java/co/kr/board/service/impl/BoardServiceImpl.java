@@ -64,8 +64,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int totalPage() {
-		return testMapper.totalPage();
+	public int totalPage(HashMap<String, Object> param) {
+		return testMapper.totalPage(param);
 	}
 	
 }

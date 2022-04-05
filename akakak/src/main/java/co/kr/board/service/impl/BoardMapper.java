@@ -27,6 +27,6 @@ public interface BoardMapper {
 	
 	public List<BoardVO> list();
 	
-	public int totalPage();
+	public int totalPage(HashMap<String, Object> param);
 
 }
