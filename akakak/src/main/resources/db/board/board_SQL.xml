@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.board.service.impl.BoardMapper">
+
+	<!-- <select id="select" resultType="HashMap"> -->
+	<!-- SELECT -->
+	<!-- idx, -->
+	<!-- name, -->
+	<!-- title, -->
+	<!-- content -->
+
+	<!-- FROM test -->
+	<!-- ORDER BY idx asc -->
+	<!-- </select> -->
+
+	<select id="select" resultType="HashMap">
+		SELECT test.idx,
+		test.name,
+		test.title,
+		test.content,
+		fileupload.file_real_name
+		FROM test LEFT OUTER JOIN fileupload
+		ON test.idx = fileupload.idx
+		<if test="type != null and type != ''">
+			WHERE ${type} LIKE '%'||#{keyword}||'%'
+		</if>
+		ORDER BY idx asc
+		LIMIT #{limit} OFFSET #{offset};
+
+	</select>
+
+	<select id="list" resultType="co.kr.board.web.BoardVO">
+		SELECT test.idx,
+		test.name,
+		test.title,
+		test.content,
+		fileupload.file_real_name
+		FROM test LEFT OUTER JOIN fileupload
+		ON test.idx = fileupload.idx
+		ORDER BY idx asc
+	</select>
+
+	<!-- <select id="detailPage" resultType="HashMap"> -->
+	<!-- select idx, -->
+	<!-- name, -->
+	<!-- title, -->
+	<!-- content -->
+	<!-- from test -->
+	<!-- where idx = #{no} -->
+	<!-- </select> -->
+
+	<select id="detailPage" resultType="HashMap">
+		SELECT test.idx,
+		test.name,
+		test.title,
+		test.content,
+		fileupload.file_path,
+		fileupload.file_name,
+		fileupload.file_real_name
+		FROM test LEFT OUTER JOIN fileupload
+		ON test.idx = fileupload.idx
+		WHERE test.idx = #{no}
+	</select>
+
+	<select id="totalPage" resultType="int">
+		SELECT COUNT(*) FROM test
+		<if test="keyword == not null">
+			WHERE ${type} LIKE '%'||#{keyword}||'%'
+		</if>
+	</select>
+
+	<delete id="delete">
+		DELETE FROM test
+		WHERE idx = #{no}
+	</delete>
+
+	<delete id="deleteFile">
+		DELETE FROM fileupload
+		WHERE idx = #{no}
+	</delete>
+
+	<!-- <delete id="delete"> -->
+	<!-- DELETE -->
+	<!-- FROM test FULL OUTER JOIN fileupload -->
+	<!-- ON test.idx = fileupload.idx -->
+	<!-- WHRER test.idx = #{no} -->
+	<!-- </delete> -->
+
+	<update id="update">
+		UPDATE test
+		SET (title, content)=(#{boardTitle}, #{boardContent})
+		WHERE idx = #{boardIdx}
+	</update>
+
+	<!-- <select id="updatePage" resultType="HashMap"> -->
+	<!-- select idx, -->
+	<!-- name, -->
+	<!-- title, -->
+	<!-- content -->
+	<!-- from test -->
+	<!-- where idx = #{no} -->
+	<!-- </select> -->
+
+	<select id="updatePage" resultType="HashMap">
+		SELECT test.idx,
+		test.name,
+		test.title,
+		test.content,
+		fileupload.file_name
+		FROM test LEFT OUTER JOIN fileupload
+		ON test.idx = fileupload.idx
+		WHERE test.idx = #{no}
+	</select>
+
+	<insert id="insert">
+		INSERT INTO test(
+		idx,
+		name,
+		title,
+		content
+		)
+		VALUES(
+		nextval('board_seq'),
+		#{boardName},
+		#{boardTitle},
+		#{boardContent}
+		)
+	</insert>
+
+	<insert id="fileInsert">
+
+		INSERT INTO fileupload(
+		idx,
+		file_name,
+		file_Path,
+		file_real_name
+		)
+		VALUES(
+		nextval('file_seq'),
+		#{fileName},
+		#{filePath},
+		#{fileOri}
+		)
+
+	</insert>
+
+</mapper>
